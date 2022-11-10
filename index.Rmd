@@ -26,14 +26,35 @@ library(ggplot2)
 
 ```{r}
 deathsentence <- read.csv("Death-Sentences-in-the-United-States-Since-1972-as-of-January-1-2021.csv")
-deathsentence
 
 
-deathsentence |>
-  group_by(Outcome.of.Sentence)|>
+
+time_graph <- deathsentence |>
+  group_by(Year)|>
   summarize(n=n())|>
-  ggplot(mapping = aes(x = Outcome.of.Sentence, y = n)) +
-  geom_col()
-        
+  ggplot(mapping = aes(x = Year, y = n)) +
+  geom_line() +
+  labs (x = "Year", y = "Number of Death Sentences",
+        title = "Change in the Use of the Capital Punishment Over Time (1972-2021)")
+
+time_graph
+
+deathsentence <- deathsentence |>
+  mutate(region = case_when(
+    State.Abbreviation %in% c("CT","ME","MA","NH","RI","VT","NJ","NY","PA", "DE") ~ "Northeast",
+    State.Abbreviation %in% c("IL","IN","MI","OH","WI", "IO","KA","MN","NE","ND","SD", "MO") ~ "Midwest",
+    State.Abbreviation %in% c("FL","GA","MD","NC", "SC", "VA", "WV", "Federal", "AL","KT","MS","TN","AR","LA","OK","TX") ~ "South",
+    State.Abbreviation %in% c("AZ","CO","ID","MT","NV","NM","UT","WY","AK","CA","HA","OR","WA") ~ "West"
+  )) 
+       
+region_graph <- deathsentence |>
+  group_by(region) |>
+  drop_na() |>
+  summarize(n=n()) |>
+  ggplot(mapping = aes(x=region, y = n))+
+  geom_col() +
+  labs(x = "US Region", "Number of Death Sentences Since 1972")
+
+region_graph
 ```
 
