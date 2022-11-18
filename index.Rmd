@@ -50,7 +50,6 @@ region_graph <- deathsentence |>
 
 region_graph
 ```
-## Project Milestone 4
 
 ```{r}
 deathsentence<-deathsentence|>
@@ -82,9 +81,6 @@ fit_2 <- lm(exonerated ~ minority + Southern, data = deathsentence)
 fit_2
 
 
-knitr::kable(race_dist, col.names = c("Race of Capital Defendant", "Total Death Sentences", "Rate of Exoneration"),
-             digits = 3)
-
 
 fit_1 |>
   broom::tidy() |>
@@ -107,7 +103,12 @@ knitr::kable(ate, col.names = c("Average Rate of Exoneration for White Defendant
              digits = 3)
 ```
 ## Analysis
-As my visualizations all cumulatively demonstrate, the defendant being a minority seems to correlate with a higher rate of exoneration from death row. Basically there is a small but still positive relationship between being a nonwhite defendant and having your sentence be overturned based on evidence of innocence. The ATE based on my calculations seems to be 0.008, a very similar statistic to the coefficient I have caluclated using linear regression as well. Basically, when a defendant is white (when minority = 0 as opposed to 1), the rate of exoneration is about 0.014 or a little over 1% (the intercept that was predicted) while the changing of the defendant's race is correlated, on average, with a 0.8 percent increase. However, as my graph mapping the distribution of sentences by region demonstrates, the South has a disproportionately high rate of death sentences. Perhaps the region of the sentence is a confounder, correlating with a higher proportion of nonwhite defendants in general and some sort of structure state-specific issue within the justice system that causes more wrongful convictions and thus exonerations overall in the South, independent of the defendant's race. However, my second attempt at running a linear regression counteracts that argument. When a defendant is sentenced in a non-Southern state, nonwhite candidates are still being exonerated at a rate of 0.008, an almost identical coefficient to the one I calculated before. On the other hand, when a defendant is white, being sentenced in a Southern state as opposed to in any other region actually correlates with a lower rate of exoneration at -0.002. 
+
+
+As my visualizations all cumulatively demonstrate, the defendant being a minority seems to correlate with a higher rate of exoneration from death row. Basically there is a small but still positive relationship between being a nonwhite defendant and having your sentence be overturned based on evidence of innocence. The ATE based on my calculations seems to be 0.008, a very similar statistic to the coefficient I have caluclated using linear regression as well. Basically, when a defendant is white (when minority = 0 as opposed to 1), the rate of exoneration is about 0.014 or a little over 1% (the intercept that was predicted) while the changing of the defendant's race is correlated, on average, with a 0.8 percent increase. However, as my graph mapping the distribution of sentences by region demonstrates, the South has a disproportionately high rate of death sentences. Perhaps the region of the sentence is a confounder, correlating with a higher proportion of nonwhite defendants in general and some sort of structure state-specific issue within the justice system that causes more wrongful convictions and thus exonerations overall in the South, independent of the defendant's race. However, my second attempt at running a linear regression counteracts that argument. When a defendant is sentenced in a non-Southern state, nonwhite defendants are still being exonerated at a rate of 0.008 higher than white ones, an almost identical coefficient to the one I calculated before. On the other hand, when a defendant is white, being sentenced in a Southern state as opposed to in any other region actually correlates with a decreased rate of exoneration at -0.002. Basically, the question of whether the death sentence was handed down in the South does not appear to be a confounder witin this data, even if the highest percentage of death sentences are located there.  
+
+
+
 ```{r}
 
 
