@@ -21,6 +21,7 @@ How does a capital defendant's race impact the eventual outcome of their death s
 ```{r}
 library(tidyverse)
 library(ggplot2)
+library(infer)
 ```
 
 
@@ -39,22 +40,98 @@ time_graph <- deathsentence |>
 
 time_graph
 
-deathsentence <- deathsentence |>
-  mutate(region = case_when(
-    State.Abbreviation %in% c("CT","ME","MA","NH","RI","VT","NJ","NY","PA", "DE") ~ "Northeast",
-    State.Abbreviation %in% c("IL","IN","MI","OH","WI", "IO","KA","MN","NE","ND","SD", "MO") ~ "Midwest",
-    State.Abbreviation %in% c("FL","GA","MD","NC", "SC", "VA", "WV", "Federal", "AL","KT","MS","TN","AR","LA","OK","TX") ~ "South",
-    State.Abbreviation %in% c("AZ","CO","ID","MT","NV","NM","UT","WY","AK","CA","HA","OR","WA") ~ "West"
-  )) 
-       
 region_graph <- deathsentence |>
-  group_by(region) |>
-  drop_na() |>
+  group_by(Region) |>
+  filter(County.and.State != "Military") |>
   summarize(n=n()) |>
-  ggplot(mapping = aes(x=region, y = n))+
+  ggplot(mapping = aes(x=Region, y = n))+
   geom_col() +
   labs(x = "US Region", "Number of Death Sentences Since 1972")
 
 region_graph
+```
+## Project Milestone 4
+
+```{r}
+deathsentence<-deathsentence|>
+  mutate(executed = if_else(Outcome.of.Sentence == "Executed" | Outcome.of.Sentence == "Executed by a Different State" | Outcome.of.Sentence == "Executed for a Different Crime" , 1, 0 )) |>
+  mutate(exonerated = if_else(Outcome.of.Sentence == "Exonerated" | Outcome.of.Sentence == "Grant of Relief (Never
+Retried)", 1, 0),
+         minority = if_else(Races == "Black" | Races == "Latinx" | Races == "American Indian or Alaska Native" | Races == "Asian" | Races == "Other", 1, 0))|>
+  mutate(Southern = if_else(Region == "South", 1, 0))
+
+
+race_region_graph <- deathsentence |>
+  group_by(Races, Region)|>
+  filter(County.and.State != "Military",
+         Races != "Unknown") |>
+  summarize(
+            meanexon = mean(exonerated)) |>
+  ggplot(mapping = aes(x = Races, y = meanexon)) +
+  geom_col() +
+  facet_wrap(~ Region) +
+  scale_x_discrete(labels = c("Native American", "Asian", "Black", "Latine", "Middle Eastern", "White"), guide = guide_axis(n.dodge=2)) +
+  labs(x = "Race of Death Row Prisoner", y= "Proportion of Death Row Prisoners Ultimately Exonerated", title = "Rate of Capital Exonerations in Relation to Defendant's Race and US Region")
+
+race_region_graph
+
+fit_1 <- lm(exonerated ~ minority, data = deathsentence)
+fit_1
+
+fit_2 <- lm(exonerated ~ minority + Southern, data = deathsentence)
+fit_2
+
+
+knitr::kable(race_dist, col.names = c("Race of Capital Defendant", "Total Death Sentences", "Rate of Exoneration"),
+             digits = 3)
+
+
+fit_1 |>
+  broom::tidy() |>
+  select(term, estimate) |>  
+  knitr::kable(digits = 3)
+
+fit_2 |>
+  broom::tidy() |>
+  select(term, estimate) |>  
+  knitr::kable(digits = 3)
+
+ate<- deathsentence |>
+  group_by(minority) |>
+  summarize(mean = mean(exonerated, na.rm = TRUE))|>
+pivot_wider(names_from = minority,
+              values_from = mean) |>
+  mutate(ATE = `1`-`0`)
+
+knitr::kable(ate, col.names = c("Average Rate of Exoneration for White Defendants", "Rate of Exoneration for Nonwhite Candidates", "Difference in Means"),
+             digits = 3)
+```
+## Analysis
+As my visualizations all cumulatively demonstrate, the defendant being a minority seems to correlate with a higher rate of exoneration from death row. Basically there is a small but still positive relationship between being a nonwhite defendant and having your sentence be overturned based on evidence of innocence. The ATE based on my calculations seems to be 0.008, a very similar statistic to the coefficient I have caluclated using linear regression as well. Basically, when a defendant is white (when minority = 0 as opposed to 1), the rate of exoneration is about 0.014 or a little over 1% (the intercept that was predicted) while the changing of the defendant's race is correlated, on average, with a 0.8 percent increase. However, as my graph mapping the distribution of sentences by region demonstrates, the South has a disproportionately high rate of death sentences. Perhaps the region of the sentence is a confounder, correlating with a higher proportion of nonwhite defendants in general and some sort of structure state-specific issue within the justice system that causes more wrongful convictions and thus exonerations overall in the South, independent of the defendant's race. However, my second attempt at running a linear regression counteracts that argument. When a defendant is sentenced in a non-Southern state, nonwhite candidates are still being exonerated at a rate of 0.008, an almost identical coefficient to the one I calculated before. On the other hand, when a defendant is white, being sentenced in a Southern state as opposed to in any other region actually correlates with a lower rate of exoneration at -0.002. 
+```{r}
+
+
+fit_3 <- lm(exonerated ~ minority + Year, data = deathsentence)
+fit_3
+  
+race_dist <- deathsentence |>
+  mutate(nonwhite = if_else(Races == "Black" | Races == "Latinx" | Races == "American Indian or Alaska Native" | Races == "Asian" | Races == "Other", "Nonwhite", "White"))|>
+  group_by(nonwhite)|>
+  summarize(count = n(), 
+            exon = mean(exonerated))
+race_dist
+knitr::kable(race_dist, col.names = c("Race of Capital Defendant", "Total Death Sentences", "Rate of Exoneration"),
+             digits = 3)
+
+region_dist <- deathsentence |>
+  group_by(Southern)|>
+  summarize(count = n())
+race_dist
+region_dist
+  
+
+
+
+
 ```
 
