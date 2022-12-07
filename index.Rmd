@@ -9,14 +9,8 @@ output:
 
 
 
-## Project thoughts
-
-I am interested in exploring data related to the criminal justice system and wrongful convictions. The Death Penalty Information Center, an organization I've interned for in the past, recently released their "Death Penalty Census," a thorough tracking of all death sentences handed down in the US since 1972, and I would be particularly interested in interacting with this data. DPIC also has tracked every single death-row exoneration we have record of and I think this information would be a useful starting point for my inquiries into demographics about the defendants and victims and the states and counties in cases that were tainted by wrongful convictions. In light of the Biden administration's pardoning of all federal simple marijuana convictions, I'd be interested in tracking data about federal drug convictions in general, tracking different sentencing outcomes and demographics to see the potential disparities.
 
 
-## Research Proposal
-
-How does a capital defendant's race impact the eventual outcome of their death sentence in the United States? The history of capital punishment in the US is one deeply entwined with the legacy of slavery, white supremacy, and lynchings. Like the prison system as a whole, Black men are disproportionately sentenced to death, particularly in the South, and many exonerations in recent history have demonstrated repeated patterns of prosecutorial misconduct and unfair  jury selection. The Death Penalty Information Center, a nonprofit research think tank dedicated to exposing the ugly truths of the death penalty in American through first-rate statistical research, just recently released the Death Penalty Census (accessed here: https://deathpenaltyinfo.org/facts-and-research/death-penalty-census) It is the most thorough tracking of every capital sentence handed down since 1974 ever compiled, tracking important factors such as defendant's race, state, age of defendant, outcome of sentence. Now that this wealth of previously unorganized data has been released, I want to investigate the average treatment effect of race on whether the death sentence is resentenced to life in prison, overturned completely, still pending, or resulted in an actual execution. Based on the pervasive racial biases within the justice system especially during the "War on Crime" throughout the 1970s-1990s, I predict that a higher proportion of sentences for white defendants will be changed to life in prison and that a higher proportion of sentences for Black defendants will end in an actual execution. DPIC's database tracks the race of each defendant, my explanatory variable, grouping it into the categories White, Black, Latinx, Asian, American Indian or Alaska Native, Pacific Islander, Other Race, and Unknown. If the defendant is multiracial, races are separated by a comma. The current case status, my outcome variable of interest, is also tracked in detail by DPIC, grouped in many different categories based on whether the sentence was reduced, commuted, overturned, still active, if defendant was executed or if they died on death row naturally instead. If the percentage of cases for White defendants that ends in resentencing is much lower than the same calculation for Black defendants, that would provide serious evidence to challenge my hypothesis. 
 
 ```{r}
 library(tidyverse)
@@ -25,41 +19,170 @@ library(infer)
 ```
 
 
+
+
+## Research Question
+
+My research question is whether the race of a prisoner being sentenced to death effects the outcome of their sentence, particularly the likelihood that they might be actually innocence of the crime and ultimately exonerated. The criminal justice in general and the history of capital punishment specifically are deeply intertwined with the history of racial discrimination in the United States, and thus I am hoping to investigate how this pattern of white supremacy impacts exoneration rates from death row. Wrongful convictions are the ultimate mistake the justice system can make, especially when it's literally a matter of life or death, and thus I find it critical to examine patterns of racial discrimination when it comes to these errors. Although current statistics about exoneration from death row are almost certainly an underestimate from the reality of the situation, they are the closest proxy for innocence currently available. I hypothesize that capital defendants who are Black, Native American, Latine, and Middle Eastern (historically the most disproportionately incarcerated communities in America) are correlated with a higher rate of exoneration in comparison with the plethora of other sentence outcomes, suggesting a pattern of government misconduct that contributes to more wrongful convictions for these groups and innocence amongst their death row populations.  
+
 ```{r}
-deathsentence <- read.csv("Death-Sentences-in-the-United-States-Since-1972-as-of-January-1-2021.csv")
+deathsentence<- read.csv("Death-Sentences-in-the-United-States-Since-1972-as-of-January-1-2021.csv")
 
+deathsentence<-deathsentence|>
 
-
-time_graph <- deathsentence |>
-  group_by(Year)|>
-  summarize(n=n())|>
-  ggplot(mapping = aes(x = Year, y = n)) +
-  geom_line() +
-  labs (x = "Year", y = "Number of Death Sentences",
-        title = "Change in the Use of the Capital Punishment Over Time (1972-2021)")
-
-time_graph
-
-region_graph <- deathsentence |>
-  group_by(Region) |>
-  filter(County.and.State != "Military") |>
-  summarize(n=n()) |>
-  ggplot(mapping = aes(x=Region, y = n))+
-  geom_col() +
-  labs(x = "US Region", "Number of Death Sentences Since 1972")
-
-region_graph
+  mutate(exonerated = if_else(Outcome.of.Sentence == "Exonerated" | Outcome.of.Sentence == "Grant of Relief (Never
+Retried)" | Outcome.of.Sentence == "No Longer on Death Row (Reason Undetermined)" , 1, 0),
+         minority = if_else(Races == "Black" | Races == "Latinx" | Races == "American Indian or Alaska Native" | Races == "Other", 1, 0))|>
+  mutate(Southern = if_else(Region == "South", 1, 0))
 ```
+
+
+## Data Explanation
+
+The data I'm working with for this study comes from a non-profit dedicated to research about capital punishment called the Death Penalty Information Center: https://deathpenaltyinfo.org/database/sentences. Just this summer, the organization released the Death Penalty Census, the most comprehensive research effort ever undertaken to account for all 9,737 death sentences handed down in the United States since the Supreme Court reinstated capital punishment as constitutional in 1972 (I actually contributed to this data base as an intern for DPIC back in 2020). The Death Penalty Census dataset I'm working with is thus an observational study as opposed to a randomized control trial. The data is derived from pre-existing capital punishment databases, reports from organizations like the NAACP's Legal Defense Fund, information from the Bureau of Justice Statistics, and Department of Corrections websites in each state--It is a holistic reflection of the realities of modern capital punishment in America rather than an experiment attempting to mimic reality. 
+
+The research design is longitudinal, not experimental or cross-sectional since the researchers have collected data across a long period of time (from 1972 to 2021) rather than at one specific moment. I will be including every sentence from this 50-year period within my analysis. With that in mind, I've made sure to control for the year when calculating my regressions to ensure that changes in death penalty patterns over time aren't interfering with my results.
+
+The two main variables at stake in this study are race of the defendant and whether or not their death sentence resulted in exoneration or not. Both of these variables were derived from original variables included in the Death Penalty Census csv file. I've included tables below that map out the specific break down of both the "Races" variable from the dataset as well as the "Outcome.of.Sentence" variable. Essentially all the variales within the dataset are a result of expert coding as opposed to some other method such as surveying. Researchers have consulted the Bureau of Prisons database to copy over the `Race` that is assigned to every prisoner ever sentenced the death specifically. The `Outcome.of.Sentence` variable was similarly coded by having the legal experts within the organization consult the case records for each of these 9,737 sentences and record the most up-to-date status of each one whether that might be an exoneration, a live sentence, an execution, a retrial, etc. 
+
+```{r}
+depend_table<-deathsentence |>
+  group_by(Outcome.of.Sentence)|>
+  summarize(count = n())
+
+race_graph<-deathsentence|>
+  group_by(Races)|>
+  filter(Races!="Unknown")|>
+  summarize(count = n())|>
+  ggplot(mapping=aes(x=Races, y = count))+
+  geom_col()+
+  scale_x_discrete(labels = c("Native American", "Asian", "Black", "Latine", "Middle Eastern", "White"), guide = guide_axis(n.dodge=2))+
+  labs(x="Defendant's Race", y= "Number of Defendants")
+
+race_graph
+
+knitr::kable(depend_table, col.names = c("Outcome of Death Sentence", "Total Sentences"),
+             digits = 3)
+
+
+depend_graph<-depend_table|>
+  ggplot(mapping = aes(x=reorder(Outcome.of.Sentence, count), y=count))+
+  geom_col(fill="light blue")+
+  coord_flip()+
+  ylim(0, 3700)+
+  geom_text(aes(label = count), position = position_stack(vjust = 1.05), size =3)+
+  labs(x = "Total Sentences", y= "Outcome of Death Sentence")
+  
+  
+depend_graph
+
+```
+
+
+
+For the sake of calculating my necessary regressions, I created two new binary variables. The variable "exonerated" would help me determine the specific exoneration rate for different racial categories by marking sentences that were either determined to be "Exonerated,""Grant of Relief (Never Retried)," or "No Longer on Death Row (Reason Undetermined)" by expert coders--essentially any instance where there wasn't sufficient evidence to uphold a sentence of death on appeal--as a 1 and everything else as 0. Similarly, I also created the variable "minority" that would mark defendants who were labelled as "Black," "Latinx," "American Indian or Alaska Native," and "Other" as 1 and the remaining defendants as a 0.  
+
+```{r}
+
+deathsentence<-deathsentence|>
+  mutate(minority_label = if_else(minority == 1, "Minority", "Non-minority"))
+
+race_dist <- deathsentence |>
+  group_by(minority_label)|>
+  summarize(count = n(), 
+            exon = mean(exonerated))
+
+knitr::kable(race_dist, col.names = c("Race of Capital Defendant", "Total Death Sentences", "Rate of Exoneration"),
+             digits = 3)
+
+```
+
 
 ```{r}
 deathsentence<-deathsentence|>
-  mutate(executed = if_else(Outcome.of.Sentence == "Executed" | Outcome.of.Sentence == "Executed by a Different State" | Outcome.of.Sentence == "Executed for a Different Crime" , 1, 0 )) |>
-  mutate(exonerated = if_else(Outcome.of.Sentence == "Exonerated" | Outcome.of.Sentence == "Grant of Relief (Never
-Retried)", 1, 0),
-         minority = if_else(Races == "Black" | Races == "Latinx" | Races == "American Indian or Alaska Native" | Races == "Asian" | Races == "Other", 1, 0))|>
-  mutate(Southern = if_else(Region == "South", 1, 0))
+  mutate(exon_label = if_else(exonerated==1, "Exonerated", "Not Exonerated"))
+depend_var_distribution<- deathsentence|>
+  group_by(exon_label)|>
+  summarize(n=n())|>
+ggplot(mapping = aes(x=exon_label, y=n))+
+  geom_text(aes(label = n), position = position_stack(vjust = 1.05), size =5)+
+  geom_col(fill = alpha("#2C77BF", .3))+
+  labs(x="Outcome of Sentence", y="Total Sentences since 1972")
+  
+
+depend_var_distribution
 
 
+```
+As you can see from the visualizations above, there is a relatively even distribution of minority defendants (5015) as opposed to non-minority ones (4779). While this is not a controlled experiment where the treatment and control are randomly assigned to ensure an even balance, it is reassuring that the two options for the independent variable in this study are evenly distributed across the data. The dependent variable, however, is not evenly distributed whatsoever. As my graph shows, the majority of sentences are either active or resulted in a resentencing to life in prison. Exoneration is only the eighth more common outcome for death sentences in the US. Thus, when I mapped out my binary variable `exonerated`, it is heavily skewed in the direction of the "Not Exonerated" option. 
+
+
+## Results
+
+My first step in calculating my results for the study was to calculate the average treatment effect of being a minority defendant on the overall rate of exoneration (and thus innocence of the accused crime). 
+
+```{r}
+ate<- deathsentence |>
+  group_by(minority) |>
+  summarize(mean = mean(exonerated, na.rm = TRUE))|>
+pivot_wider(names_from = minority,
+              values_from = mean) |>
+  summarize(ATE = `1`-`0`)
+
+ate_table<- deathsentence |>
+  group_by(minority) |>
+  summarize(mean = mean(exonerated, na.rm = TRUE))|>
+pivot_wider(names_from = minority,
+              values_from = mean) |>
+  mutate(ATE = `1`-`0`)
+
+knitr::kable(ate_table, col.names = c("Average Rate of Exoneration for Non-Minority Defendants", "Rate of Exoneration for Minority Candidates", "Difference in Means"),
+             digits = 6)
+```
+
+As the above table indicates, the estimated treatment effect for race is 0.008. This means that the average rate of exoneration for defendants is about 0.8 percent higher for those who are minorities compared to those who are not. Although this is a very small effect, it does still align with my hypothesis that minority defendants would be more likely to exonerated and thus probably more likely to be wrongfully convicted. 
+
+```{r}
+library(infer)
+set.seed(02138)
+
+ate_boots <- deathsentence |>
+  rep_slice_sample(prop = 1, replace = TRUE, reps = 1000) |>
+  group_by(replicate, minority)|>
+  summarize(meanex= mean(exonerated, na.rm=TRUE))|>
+  pivot_wider(names_from = minority,
+               values_from = meanex)|>
+  summarize(ATE = `1` - `0`)
+
+ate_ci_95 <- ate_boots |>
+  select(replicate, ATE) |>
+  get_confidence_interval(level = 0.95, type = "percentile")
+
+
+ate_ci_99 <- ate_boots |>
+  select(replicate, ATE) |>
+  get_confidence_interval(level = 0.99, type = "percentile")
+
+
+knitr::kable(ate_ci_95, col.names = c("Lower Confidence Interval (95%)", "Upper Confidence Interval (95%)"),
+             digits = 4)
+
+knitr::kable(ate_ci_99, col.names = c("Lower Confidence Interval (99%)", "Upper Confidence Interval (99%)"),
+             digits = 4)
+```
+To better understand the statistical significance of the data, I created 1,000 bootstrap replications and used them to calculate a 95 confidence interval. The confidence interval is 0.003 through 0.014. Even though my original ATE is relatively small, the confidence interval still does not include 0 even when adjusted to a 99% interval instead of 95. This means that I can reject the null hypothesis that there is no actual difference in means between minority and nonminority defendants. 
+
+
+```{r}
+race_exon_graph <- deathsentence|>
+  group_by(Races)|>
+  filter(Races != "Unknown")|>
+  summarize(mean = mean(exonerated))|>
+  ggplot(mapping = aes(x = Races, y = mean))+
+  geom_col()+
+  scale_x_discrete(labels = c("Native American", "Asian", "Black", "Latine", "Middle Eastern", "White"), guide = guide_axis(n.dodge=2))+
+  labs(x="Race of Death Row Defendant", y="Exoneration Rate")
+race_exon_graph
 race_region_graph <- deathsentence |>
   group_by(Races, Region)|>
   filter(County.and.State != "Military",
@@ -74,12 +197,38 @@ race_region_graph <- deathsentence |>
 
 race_region_graph
 
+
+race_exon_graph <- deathsentence|>
+  mutate(group_label=case_when(minority==1 & exonerated ==1 ~ "Exonerated & Minority",
+                               minority==1 & exonerated ==0 ~ "Not Exonerated & Minority",
+                               minority==0 & exonerated ==1 ~ "Exonerated & Non-minority",
+                               minority==0 & exonerated == 0 ~ "Not Exonerated & Non-minority"))|>
+  group_by(group_label)|>
+  summarize(count=n())|>
+  ggplot(mapping = aes(x= group_label, y=count))+
+  geom_col(fill = alpha("#2C77BF", .3))+
+  geom_text(aes(label = count), position = position_stack(vjust = 1.05), size =5)+
+  scale_x_discrete(guide = guide_axis(n.dodge=2))+
+  
+  labs(x="Defendant Type", y="Total Defendants")
+  
+race_exon_graph
+```
+
+
+These visualizations of the relationship between my independent (defendant's race) and dependent variables (whether the sentence ends in exoneration) further reinforces this positive correlation. Middle Eastern defendants actually have the highest incident of exoneration at a rate of 5%. Ever racial category considered under the label "minority" has a higher rate of exoneration than white defendants except for Native Americans. The further breakdown by region shows that Middle Easterners sentenced in the South have the highest rate of exoneration at ~10% followed by Latine defendants in the Midwest at a rate of almost 8%. 
+
+```{r}
+
+deathsentence <- deathsentence |>
+  mutate(gender = if_else(Gender == "Male", 1, 0),
+         Southern = if_else(Region == "South", 1, 0))
+
 fit_1 <- lm(exonerated ~ minority, data = deathsentence)
-fit_1
+
+
 
 fit_2 <- lm(exonerated ~ minority + Southern, data = deathsentence)
-fit_2
-
 
 
 fit_1 |>
@@ -92,47 +241,31 @@ fit_2 |>
   select(term, estimate) |>  
   knitr::kable(digits = 3)
 
-ate<- deathsentence |>
-  group_by(minority) |>
-  summarize(mean = mean(exonerated, na.rm = TRUE))|>
-pivot_wider(names_from = minority,
-              values_from = mean) |>
-  mutate(ATE = `1`-`0`)
-
-knitr::kable(ate, col.names = c("Average Rate of Exoneration for White Defendants", "Rate of Exoneration for Nonwhite Candidates", "Difference in Means"),
-             digits = 3)
-```
-## Analysis
 
 
-As my visualizations all cumulatively demonstrate, the defendant being a minority seems to correlate with a higher rate of exoneration from death row. Basically there is a small but still positive relationship between being a nonwhite defendant and having your sentence be overturned based on evidence of innocence. The ATE based on my calculations seems to be 0.008, a very similar statistic to the coefficient I have caluclated using linear regression as well. Basically, when a defendant is white (when minority = 0 as opposed to 1), the rate of exoneration is about 0.014 or a little over 1% (the intercept that was predicted) while the changing of the defendant's race is correlated, on average, with a 0.8 percent increase. However, as my graph mapping the distribution of sentences by region demonstrates, the South has a disproportionately high rate of death sentences. Perhaps the region of the sentence is a confounder, correlating with a higher proportion of nonwhite defendants in general and some sort of structure state-specific issue within the justice system that causes more wrongful convictions and thus exonerations overall in the South, independent of the defendant's race. However, my second attempt at running a linear regression counteracts that argument. When a defendant is sentenced in a non-Southern state, nonwhite defendants are still being exonerated at a rate of 0.008 higher than white ones, an almost identical coefficient to the one I calculated before. On the other hand, when a defendant is white, being sentenced in a Southern state as opposed to in any other region actually correlates with a decreased rate of exoneration at -0.002. Basically, the question of whether the death sentence was handed down in the South does not appear to be a confounder witin this data, even if the highest percentage of death sentences are located there.  
+fit_3 <- lm(exonerated ~ minority + Southern + Year + gender, data = deathsentence)
 
 
 
-```{r}
+library(broom)
+fit_table<-tidy(fit_3)
 
-
-fit_3 <- lm(exonerated ~ minority + Year, data = deathsentence)
-fit_3
-  
-race_dist <- deathsentence |>
-  mutate(nonwhite = if_else(Races == "Black" | Races == "Latinx" | Races == "American Indian or Alaska Native" | Races == "Asian" | Races == "Other", "Nonwhite", "White"))|>
-  group_by(nonwhite)|>
-  summarize(count = n(), 
-            exon = mean(exonerated))
-race_dist
-knitr::kable(race_dist, col.names = c("Race of Capital Defendant", "Total Death Sentences", "Rate of Exoneration"),
-             digits = 3)
-
-region_dist <- deathsentence |>
-  group_by(Southern)|>
-  summarize(count = n())
-race_dist
-region_dist
-  
-
-
-
+modelsummary::modelsummary(fit_3,
+                           statistic = c("s.e. = {std.error}",
+                                         "p = {p.value}"),
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"))
 
 ```
+I then generated three different regressions to try to estimate the effect of race on exoneration rates, trying to eliminate potential confounders. When using "exonerated" as the only response variable and "minority" as the predictor, the estimated coefficient is 0.0082. Essentially, this is the same estimated effect of race on exoneration rate as I already calculated by finding the difference in means. When the exonerated variable increases by 1 (basically switches from a nonminority to a minority), the average proportion of sentences ending in exoneration increases by 0.8 percent. 
+
+In the interest of calculating a coefficient that could be more plausibly interpreted as causal, I needed to also eliminate potential confounders by calculating a multiple regression. Considering a high proportion of total death sentences come from the South as opposed to any other region in the US, I considered Region to be the most worrying potential confounder. It was possible that the South not only had many more minority capital defendants than other regions but that there was also something unique about the criminal justice system in these state's specifically that made wrongful convictions and exonerations higher across the board for all races. However, when I ran a regression that controlled for whether the sentence was from the South or not, I found that the minority coefficient was almost identical to the original one, now 0.008240 instead of 0.008244. In fact, the Southern coefficient was even -0.004, meaning that when the defendant's race was held constant, having a sentence in the South meant that the exoneration rate would be on average about 0.4 percent lower than in a non-Southern state. 
+
+I ran one last regression with four different predictors, three of them being potential confounders in my mind, to really reinforce the slight positive effect of being a minority on the rate of exoneration from death row. On top of Southern status, I also controlled for the Year the sentence was handed down as well as the gender of the defendant. It was possible that many more death sentences were handed down for minorities in the earlier decades of this dataset and that this older date might mean the sentence would also have more time logistically to work its way through the main legal avenues to be overturned compared to more recent ones, resulting independently on a higher exoneration rate. Although the vast majority of death row prisoners are men, I thought it wise to also control for gender in case the female defendants were not well distributed with regards to race the way the overall defendants are (5015 Minority and 4779 Non-minority). The minority coefficient for this regression was 0.009, a slightly higher percentage than the one calculated for the other two regressions. This suggests that none of the variables I identified were significant confounders that were skewing the minority and exoneration rate relationship. The standard error for this coefficient is also very low at just 0.003 and the p-value is 0.001. If I set my alpha value at the reasonable value of 0.05, my low p-value means that I can reject the null hypothesis that there's no actual correlation between minority status and exoneration rate, proving the results to be more statistically significant. 
+
+Although my results do appear to be statistically significant and I have made an effort to eliminate confounders, I do not ultimately think it makes sense to view them causally. For one, even though my confidence intervals do not include zero, the estimated effect is still incredibly small even if consistently positive. Secondly, it was difficult to ensure that the two treatment groups -- either minority or non-minority -- are demographically similar on all other relevant fronts considering the limited information available in this study. Perhaps the higher chances of being wrongfully convicted are more directly related to income or whether the case happened in an urban/rural area, etc. As we've learned in the course, it is harder to ensure internal validity with an observational study compared to a random control trial. That being said, this study seems to maintain a higher level of external validity, meaning that the pattern that minorities are more likely to be wrongfully convicted on death row can more likely be generalized to broader contexts beyond this study. 
+
+
+## Conclusion
+
+In conclusion, my analysis does support my original hypothesis that being a minority defendant would be associated with a higher rate of exoneration from death row. That being said, the estimated effect, though statistically significant based on the p-value and consistent even when testing several confounders, is incredibly marginal, hovering just under 1 percent. The combination of this and the fact that there are many other potential confounders I could not test using this current data set meant I was not able to argue that the positive correlation was necessarily causal. One of the main limitations on the study, in my opinion, is the relatively small sample size of death row sentences, especially ones that end in exoneration, compared with many other studies we've conducted throughout the GOV 50 course. Since the rate of exoneration overall was relatively small, this meant differences across racial lines, even if consistently demonstrated, were also relatively small. If I were able to access a data set that tracked all sentences dealing with violent crimes, for instance, and the outcomes of those sentences, I predict that these same patterns of innocence and exoneration would hold up but on a larger, less marginal scale. The other limitation to the study was the relatively small number of variables included in the Death Penalty Census that I could use to check for confounders. To improve the study in the future, I think it would be incredibly useful to also track variables such as the average income of the defendant, the race of the victim, the number of victims, whether they have previous criminal convictions, etc. Since this is not a randomized control trial, it is very tricky to ensure that those included in the treated (aka minority group) versus control (aka the non-minority group) categories are demographically similar in other ways since they are reflective of the actual population full of disparities rather than randomized by an algorithm. Therefore, I think the more impactful variables I could control for when calculating my minority coefficient in the regression beyond just region, year, and gender, the stronger the results could be.
 

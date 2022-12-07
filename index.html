@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["Death-Sentences-in-the-United-States-Since-1972-as-of-January-1-2021.csv","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-2-1.png","index_files/figure-html5/unnamed-chunk-2-2.png","index_files/figure-html5/unnamed-chunk-3-1.png","index_files/header-attrs-2.16/header-attrs.js","index_files/header-attrs-2.17/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["Death-Sentences-in-the-United-States-Since-1972-as-of-January-1-2021.csv","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-10-1.png","index_files/figure-html5/unnamed-chunk-12-1.png","index_files/figure-html5/unnamed-chunk-16-1.png","index_files/figure-html5/unnamed-chunk-16-2.png","index_files/figure-html5/unnamed-chunk-16-3.png","index_files/figure-html5/unnamed-chunk-2-1.png","index_files/figure-html5/unnamed-chunk-2-2.png","index_files/figure-html5/unnamed-chunk-3-1.png","index_files/figure-html5/unnamed-chunk-3-2.png","index_files/figure-html5/unnamed-chunk-5-1.png","index_files/figure-html5/unnamed-chunk-8-1.png","index_files/figure-html5/unnamed-chunk-8-2.png","index_files/figure-html5/unnamed-chunk-8-3.png","index_files/header-attrs-2.16/header-attrs.js","index_files/header-attrs-2.17/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/kePrint-0.0.1/kePrint.js","index_files/lightable-0.0.1/lightable.css","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1473,6 +1473,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <!--/radix_placeholder_distill-->
   <script src="index_files/header-attrs-2.16/header-attrs.js"></script>
+  <script src="index_files/kePrint-0.0.1/kePrint.js"></script>
+  <link href="index_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
   <script src="index_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="index_files/popper-2.6.0/popper.min.js"></script>
   <link href="index_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -1517,10 +1519,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<h2 id="project-thoughts">Project thoughts</h2>
-<p>I am interested in exploring data related to the criminal justice system and wrongful convictions. The Death Penalty Information Center, an organization I’ve interned for in the past, recently released their “Death Penalty Census,” a thorough tracking of all death sentences handed down in the US since 1972, and I would be particularly interested in interacting with this data. DPIC also has tracked every single death-row exoneration we have record of and I think this information would be a useful starting point for my inquiries into demographics about the defendants and victims and the states and counties in cases that were tainted by wrongful convictions. In light of the Biden administration’s pardoning of all federal simple marijuana convictions, I’d be interested in tracking data about federal drug convictions in general, tracking different sentencing outcomes and demographics to see the potential disparities.</p>
-<h2 id="research-proposal">Research Proposal</h2>
-<p>How does a capital defendant’s race impact the eventual outcome of their death sentence in the United States? The history of capital punishment in the US is one deeply entwined with the legacy of slavery, white supremacy, and lynchings. Like the prison system as a whole, Black men are disproportionately sentenced to death, particularly in the South, and many exonerations in recent history have demonstrated repeated patterns of prosecutorial misconduct and unfair jury selection. The Death Penalty Information Center, a nonprofit research think tank dedicated to exposing the ugly truths of the death penalty in American through first-rate statistical research, just recently released the Death Penalty Census (accessed here: <a href="https://deathpenaltyinfo.org/facts-and-research/death-penalty-census" class="uri">https://deathpenaltyinfo.org/facts-and-research/death-penalty-census</a>) It is the most thorough tracking of every capital sentence handed down since 1974 ever compiled, tracking important factors such as defendant’s race, state, age of defendant, outcome of sentence. Now that this wealth of previously unorganized data has been released, I want to investigate the average treatment effect of race on whether the death sentence is resentenced to life in prison, overturned completely, still pending, or resulted in an actual execution. Based on the pervasive racial biases within the justice system especially during the “War on Crime” throughout the 1970s-1990s, I predict that a higher proportion of sentences for white defendants will be changed to life in prison and that a higher proportion of sentences for Black defendants will end in an actual execution. DPIC’s database tracks the race of each defendant, my explanatory variable, grouping it into the categories White, Black, Latinx, Asian, American Indian or Alaska Native, Pacific Islander, Other Race, and Unknown. If the defendant is multiracial, races are separated by a comma. The current case status, my outcome variable of interest, is also tracked in detail by DPIC, grouped in many different categories based on whether the sentence was reduced, commuted, overturned, still active, if defendant was executed or if they died on death row naturally instead. If the percentage of cases for White defendants that ends in resentencing is much lower than the same calculation for Black defendants, that would provide serious evidence to challenge my hypothesis.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
@@ -1528,47 +1526,327 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tidymodels/infer'>infer</a></span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
+<h2 id="research-question">Research Question</h2>
+<p>My research question is whether the race of a prisoner being sentenced to death effects the outcome of their sentence, particularly the likelihood that they might be actually innocence of the crime and ultimately exonerated. The criminal justice in general and the history of capital punishment specifically are deeply intertwined with the history of racial discrimination in the United States, and thus I am hoping to investigate how this pattern of white supremacy impacts exoneration rates from death row. Wrongful convictions are the ultimate mistake the justice system can make, especially when it’s literally a matter of life or death, and thus I find it critical to examine patterns of racial discrimination when it comes to these errors. Although current statistics about exoneration from death row are almost certainly an underestimate from the reality of the situation, they are the closest proxy for innocence currently available. I hypothesize that capital defendants who are Black, Native American, Latine, and Middle Eastern (historically the most disproportionately incarcerated communities in America) are correlated with a higher rate of exoneration in comparison with the plethora of other sentence outcomes, suggesting a pattern of government misconduct that contributes to more wrongful convictions for these groups and innocence amongst their death row populations.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>deathsentence</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"Death-Sentences-in-the-United-States-Since-1972-as-of-January-1-2021.csv"</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>deathsentence</span><span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"Death-Sentences-in-the-United-States-Since-1972-as-of-January-1-2021.csv"</span><span class='op'>)</span></span>
 <span></span>
+<span><span class='va'>deathsentence</span><span class='op'>&lt;-</span><span class='va'>deathsentence</span><span class='op'>|&gt;</span></span>
 <span></span>
-<span></span>
-<span><span class='va'>time_graph</span> <span class='op'>&lt;-</span> <span class='va'>deathsentence</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>Year</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>n<span class='op'>=</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Year</span>, y <span class='op'>=</span> <span class='va'>n</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span> <span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Year"</span>, y <span class='op'>=</span> <span class='st'>"Number of Death Sentences"</span>,</span>
-<span>        title <span class='op'>=</span> <span class='st'>"Change in the Use of the Capital Punishment Over Time (1972-2021)"</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>time_graph</span></span></code></pre>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>exonerated <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>Outcome.of.Sentence</span> <span class='op'>==</span> <span class='st'>"Exonerated"</span> <span class='op'>|</span> <span class='va'>Outcome.of.Sentence</span> <span class='op'>==</span> <span class='st'>"Grant of Relief (Never</span></span>
+<span><span class='st'>Retried)"</span> <span class='op'>|</span> <span class='va'>Outcome.of.Sentence</span> <span class='op'>==</span> <span class='st'>"No Longer on Death Row (Reason Undetermined)"</span> , <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span>,</span>
+<span>         minority <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>Races</span> <span class='op'>==</span> <span class='st'>"Black"</span> <span class='op'>|</span> <span class='va'>Races</span> <span class='op'>==</span> <span class='st'>"Latinx"</span> <span class='op'>|</span> <span class='va'>Races</span> <span class='op'>==</span> <span class='st'>"American Indian or Alaska Native"</span> <span class='op'>|</span> <span class='va'>Races</span> <span class='op'>==</span> <span class='st'>"Other"</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>Southern <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>Region</span> <span class='op'>==</span> <span class='st'>"South"</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
-<img src="index_files/figure-html5/unnamed-chunk-2-1.png" width="624" />
+</div>
+<h2 id="data-explanation">Data Explanation</h2>
+<p>The data I’m working with for this study comes from a non-profit dedicated to research about capital punishment called the Death Penalty Information Center: <a href="https://deathpenaltyinfo.org/database/sentences" class="uri">https://deathpenaltyinfo.org/database/sentences</a>. Just this summer, the organization released the Death Penalty Census, the most comprehensive research effort ever undertaken to account for all 9,737 death sentences handed down in the United States since the Supreme Court reinstated capital punishment as constitutional in 1972 (I actually contributed to this data base as an intern for DPIC back in 2020). The Death Penalty Census dataset I’m working with is thus an observational study as opposed to a randomized control trial. The data is derived from pre-existing capital punishment databases, reports from organizations like the NAACP’s Legal Defense Fund, information from the Bureau of Justice Statistics, and Department of Corrections websites in each state–It is a holistic reflection of the realities of modern capital punishment in America rather than an experiment attempting to mimic reality.</p>
+<p>The research design is longitudinal, not experimental or cross-sectional since the researchers have collected data across a long period of time (from 1972 to 2021) rather than at one specific moment. I will be including every sentence from this 50-year period within my analysis. With that in mind, I’ve made sure to control for the year when calculating my regressions to ensure that changes in death penalty patterns over time aren’t interfering with my results.</p>
+<p>The two main variables at stake in this study are race of the defendant and whether or not their death sentence resulted in exoneration or not. Both of these variables were derived from original variables included in the Death Penalty Census csv file. I’ve included tables below that map out the specific break down of both the “Races” variable from the dataset as well as the “Outcome.of.Sentence” variable. Essentially all the variales within the dataset are a result of expert coding as opposed to some other method such as surveying. Researchers have consulted the Bureau of Prisons database to copy over the <code>Race</code> that is assigned to every prisoner ever sentenced the death specifically. The <code>Outcome.of.Sentence</code> variable was similarly coded by having the legal experts within the organization consult the case records for each of these 9,737 sentences and record the most up-to-date status of each one whether that might be an exoneration, a live sentence, an execution, a retrial, etc.</p>
+<div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>region_graph</span> <span class='op'>&lt;-</span> <span class='va'>deathsentence</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>Region</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>County.and.State</span> <span class='op'>!=</span> <span class='st'>"Military"</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>n<span class='op'>=</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>Region</span>, y <span class='op'>=</span> <span class='va'>n</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"US Region"</span>, <span class='st'>"Number of Death Sentences Since 1972"</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>depend_table</span><span class='op'>&lt;-</span><span class='va'>deathsentence</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>Outcome.of.Sentence</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='va'>region_graph</span></span></code></pre>
+<span><span class='va'>race_graph</span><span class='op'>&lt;-</span><span class='va'>deathsentence</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>Races</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Races</span><span class='op'>!=</span><span class='st'>"Unknown"</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>Races</span>, y <span class='op'>=</span> <span class='va'>count</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_x_discrete</a></span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Native American"</span>, <span class='st'>"Asian"</span>, <span class='st'>"Black"</span>, <span class='st'>"Latine"</span>, <span class='st'>"Middle Eastern"</span>, <span class='st'>"White"</span><span class='op'>)</span>, guide <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_axis.html'>guide_axis</a></span><span class='op'>(</span>n.dodge<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"Defendant's Race"</span>, y<span class='op'>=</span> <span class='st'>"Number of Defendants"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>race_graph</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-2-2.png" width="624" /></p>
+<img src="index_files/figure-html5/unnamed-chunk-3-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>depend_table</span>, col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Outcome of Death Sentence"</span>, <span class='st'>"Total Sentences"</span><span class='op'>)</span>,</span>
+<span>             digits <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span></span></code></pre>
+</div>
+<table>
+<colgroup>
+<col style="width: 83%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Outcome of Death Sentence</th>
+<th style="text-align: right;">Total Sentences</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Acquitted, Convicted and Sentenced to Death in Another Jurisdiction</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Active Death Sentence</td>
+<td style="text-align: right;">2320</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Conviction Voided, Convicted and Sentenced to Life or Less in Another Jurisdiction</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Died on Death Row</td>
+<td style="text-align: right;">711</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Died Pending Retrial or Resentencing</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Executed</td>
+<td style="text-align: right;">1532</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Executed by a Different State</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Executed for a Different Crime</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Executed for a Different Crime Pending Retrial or Resentencing</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Exonerated</td>
+<td style="text-align: right;">179</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Grant of Relief (Never Retried)</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Grant of Relief (Retrial/Resentencing Pending)</td>
+<td style="text-align: right;">224</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Grant of Relief (Subject to Appeal)</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">No Longer on Death Row (Reason Undetermined)</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Not Guilty by Reason of Insanity</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Resentenced to Death</td>
+<td style="text-align: right;">862</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Resentenced to Life or Less</td>
+<td style="text-align: right;">3508</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Retrial Barred</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sentence Commuted</td>
+<td style="text-align: right;">288</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sentence Commuted (Administrative)</td>
+<td style="text-align: right;">72</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>depend_graph</span><span class='op'>&lt;-</span><span class='va'>depend_table</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/stats/reorder.factor.html'>reorder</a></span><span class='op'>(</span><span class='va'>Outcome.of.Sentence</span>, <span class='va'>count</span><span class='op'>)</span>, y<span class='op'>=</span><span class='va'>count</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span>fill<span class='op'>=</span><span class='st'>"light blue"</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/lims.html'>ylim</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>3700</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label <span class='op'>=</span> <span class='va'>count</span><span class='op'>)</span>, position <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/position_stack.html'>position_stack</a></span><span class='op'>(</span>vjust <span class='op'>=</span> <span class='fl'>1.05</span><span class='op'>)</span>, size <span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Total Sentences"</span>, y<span class='op'>=</span> <span class='st'>"Outcome of Death Sentence"</span><span class='op'>)</span></span>
+<span>  </span>
+<span>  </span>
+<span><span class='va'>depend_graph</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-3-2.png" width="624" /></p>
+</div>
+<p>For the sake of calculating my necessary regressions, I created two new binary variables. The variable “exonerated” would help me determine the specific exoneration rate for different racial categories by marking sentences that were either determined to be “Exonerated,”“Grant of Relief (Never Retried),” or “No Longer on Death Row (Reason Undetermined)” by expert coders–essentially any instance where there wasn’t sufficient evidence to uphold a sentence of death on appeal–as a 1 and everything else as 0. Similarly, I also created the variable “minority” that would mark defendants who were labelled as “Black,” “Latinx,” “American Indian or Alaska Native,” and “Other” as 1 and the remaining defendants as a 0.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>deathsentence</span><span class='op'>&lt;-</span><span class='va'>deathsentence</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>minority_label <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>minority</span> <span class='op'>==</span> <span class='fl'>1</span>, <span class='st'>"Minority"</span>, <span class='st'>"Non-minority"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>race_dist</span> <span class='op'>&lt;-</span> <span class='va'>deathsentence</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>minority_label</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span>, </span>
+<span>            exon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>exonerated</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>race_dist</span>, col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Race of Capital Defendant"</span>, <span class='st'>"Total Death Sentences"</span>, <span class='st'>"Rate of Exoneration"</span><span class='op'>)</span>,</span>
+<span>             digits <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span></span></code></pre>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Race of Capital Defendant</th>
+<th style="text-align: right;">Total Death Sentences</th>
+<th style="text-align: right;">Rate of Exoneration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Minority</td>
+<td style="text-align: right;">5015</td>
+<td style="text-align: right;">0.024</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Non-minority</td>
+<td style="text-align: right;">4779</td>
+<td style="text-align: right;">0.015</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>deathsentence</span><span class='op'>&lt;-</span><span class='va'>deathsentence</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>executed <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>Outcome.of.Sentence</span> <span class='op'>==</span> <span class='st'>"Executed"</span> <span class='op'>|</span> <span class='va'>Outcome.of.Sentence</span> <span class='op'>==</span> <span class='st'>"Executed by a Different State"</span> <span class='op'>|</span> <span class='va'>Outcome.of.Sentence</span> <span class='op'>==</span> <span class='st'>"Executed for a Different Crime"</span> , <span class='fl'>1</span>, <span class='fl'>0</span> <span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>exonerated <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>Outcome.of.Sentence</span> <span class='op'>==</span> <span class='st'>"Exonerated"</span> <span class='op'>|</span> <span class='va'>Outcome.of.Sentence</span> <span class='op'>==</span> <span class='st'>"Grant of Relief (Never</span></span>
-<span><span class='st'>Retried)"</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span>,</span>
-<span>         minority <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>Races</span> <span class='op'>==</span> <span class='st'>"Black"</span> <span class='op'>|</span> <span class='va'>Races</span> <span class='op'>==</span> <span class='st'>"Latinx"</span> <span class='op'>|</span> <span class='va'>Races</span> <span class='op'>==</span> <span class='st'>"American Indian or Alaska Native"</span> <span class='op'>|</span> <span class='va'>Races</span> <span class='op'>==</span> <span class='st'>"Asian"</span> <span class='op'>|</span> <span class='va'>Races</span> <span class='op'>==</span> <span class='st'>"Other"</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>Southern <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>Region</span> <span class='op'>==</span> <span class='st'>"South"</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>exon_label <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>exonerated</span><span class='op'>==</span><span class='fl'>1</span>, <span class='st'>"Exonerated"</span>, <span class='st'>"Not Exonerated"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>depend_var_distribution</span><span class='op'>&lt;-</span> <span class='va'>deathsentence</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>exon_label</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>n<span class='op'>=</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>exon_label</span>, y<span class='op'>=</span><span class='va'>n</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label <span class='op'>=</span> <span class='va'>n</span><span class='op'>)</span>, position <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/position_stack.html'>position_stack</a></span><span class='op'>(</span>vjust <span class='op'>=</span> <span class='fl'>1.05</span><span class='op'>)</span>, size <span class='op'>=</span><span class='fl'>5</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://scales.r-lib.org/reference/alpha.html'>alpha</a></span><span class='op'>(</span><span class='st'>"#2C77BF"</span>, <span class='fl'>.3</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"Outcome of Sentence"</span>, y<span class='op'>=</span><span class='st'>"Total Sentences since 1972"</span><span class='op'>)</span></span>
+<span>  </span>
+<span></span>
+<span><span class='va'>depend_var_distribution</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+</div>
+<p>As you can see from the visualizations above, there is a relatively even distribution of minority defendants (5015) as opposed to non-minority ones (4779). While this is not a controlled experiment where the treatment and control are randomly assigned to ensure an even balance, it is reassuring that the two options for the independent variable in this study are evenly distributed across the data. The dependent variable, however, is not evenly distributed whatsoever. As my graph shows, the majority of sentences are either active or resulted in a resentencing to life in prison. Exoneration is only the eighth more common outcome for death sentences in the US. Thus, when I mapped out my binary variable <code>exonerated</code>, it is heavily skewed in the direction of the “Not Exonerated” option.</p>
+<h2 id="results">Results</h2>
+<p>My first step in calculating my results for the study was to calculate the average treatment effect of being a minority defendant on the overall rate of exoneration (and thus innocence of the accused crime).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>ate</span><span class='op'>&lt;-</span> <span class='va'>deathsentence</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>minority</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>mean <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>exonerated</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span><span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_wider.html'>pivot_wider</a></span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>minority</span>,</span>
+<span>              values_from <span class='op'>=</span> <span class='va'>mean</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>ATE <span class='op'>=</span> <span class='va'>`1`</span><span class='op'>-</span><span class='va'>`0`</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>ate_table</span><span class='op'>&lt;-</span> <span class='va'>deathsentence</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>minority</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>mean <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>exonerated</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span><span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_wider.html'>pivot_wider</a></span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>minority</span>,</span>
+<span>              values_from <span class='op'>=</span> <span class='va'>mean</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>ATE <span class='op'>=</span> <span class='va'>`1`</span><span class='op'>-</span><span class='va'>`0`</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>ate_table</span>, col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Average Rate of Exoneration for Non-Minority Defendants"</span>, <span class='st'>"Rate of Exoneration for Minority Candidates"</span>, <span class='st'>"Difference in Means"</span><span class='op'>)</span>,</span>
+<span>             digits <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span></span></code></pre>
+</div>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 36%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Average Rate of Exoneration for Non-Minority Defendants</th>
+<th style="text-align: right;">Rate of Exoneration for Minority Candidates</th>
+<th style="text-align: right;">Difference in Means</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.015484</td>
+<td style="text-align: right;">0.023729</td>
+<td style="text-align: right;">0.008244</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>As the above table indicates, the estimated treatment effect for race is 0.008. This means that the average rate of exoneration for defendants is about 0.8 percent higher for those who are minorities compared to those who are not. Although this is a very small effect, it does still align with my hypothesis that minority defendants would be more likely to exonerated and thus probably more likely to be wrongfully convicted.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tidymodels/infer'>infer</a></span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>02138</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>ate_boots</span> <span class='op'>&lt;-</span> <span class='va'>deathsentence</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://infer.tidymodels.org/reference/rep_sample_n.html'>rep_slice_sample</a></span><span class='op'>(</span>prop <span class='op'>=</span> <span class='fl'>1</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span>, reps <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>replicate</span>, <span class='va'>minority</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>meanex<span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>exonerated</span>, na.rm<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_wider.html'>pivot_wider</a></span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>minority</span>,</span>
+<span>               values_from <span class='op'>=</span> <span class='va'>meanex</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>ATE <span class='op'>=</span> <span class='va'>`1`</span> <span class='op'>-</span> <span class='va'>`0`</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>ate_ci_95</span> <span class='op'>&lt;-</span> <span class='va'>ate_boots</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>replicate</span>, <span class='va'>ATE</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://infer.tidymodels.org/reference/get_confidence_interval.html'>get_confidence_interval</a></span><span class='op'>(</span>level <span class='op'>=</span> <span class='fl'>0.95</span>, type <span class='op'>=</span> <span class='st'>"percentile"</span><span class='op'>)</span></span>
 <span></span>
 <span></span>
-<span><span class='va'>race_region_graph</span> <span class='op'>&lt;-</span> <span class='va'>deathsentence</span> <span class='op'>|&gt;</span></span>
+<span><span class='va'>ate_ci_99</span> <span class='op'>&lt;-</span> <span class='va'>ate_boots</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>replicate</span>, <span class='va'>ATE</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://infer.tidymodels.org/reference/get_confidence_interval.html'>get_confidence_interval</a></span><span class='op'>(</span>level <span class='op'>=</span> <span class='fl'>0.99</span>, type <span class='op'>=</span> <span class='st'>"percentile"</span><span class='op'>)</span></span>
+<span></span>
+<span></span>
+<span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>ate_ci_95</span>, col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Lower Confidence Interval (95%)"</span>, <span class='st'>"Upper Confidence Interval (95%)"</span><span class='op'>)</span>,</span>
+<span>             digits <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Lower Confidence Interval (95%)</th>
+<th style="text-align: right;">Upper Confidence Interval (95%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.0029</td>
+<td style="text-align: right;">0.0138</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>ate_ci_99</span>, col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Lower Confidence Interval (99%)"</span>, <span class='st'>"Upper Confidence Interval (99%)"</span><span class='op'>)</span>,</span>
+<span>             digits <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span></span></code></pre>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Lower Confidence Interval (99%)</th>
+<th style="text-align: right;">Upper Confidence Interval (99%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.0013</td>
+<td style="text-align: right;">0.0152</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>To better understand the statistical significance of the data, I created 1,000 bootstrap replications and used them to calculate a 95 confidence interval. The confidence interval is 0.003 through 0.014. Even though my original ATE is relatively small, the confidence interval still does not include 0 even when adjusted to a 99% interval instead of 95. This means that I can reject the null hypothesis that there is no actual difference in means between minority and nonminority defendants.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>race_exon_graph</span> <span class='op'>&lt;-</span> <span class='va'>deathsentence</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>Races</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Races</span> <span class='op'>!=</span> <span class='st'>"Unknown"</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>mean <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>exonerated</span><span class='op'>)</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Races</span>, y <span class='op'>=</span> <span class='va'>mean</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_x_discrete</a></span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Native American"</span>, <span class='st'>"Asian"</span>, <span class='st'>"Black"</span>, <span class='st'>"Latine"</span>, <span class='st'>"Middle Eastern"</span>, <span class='st'>"White"</span><span class='op'>)</span>, guide <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_axis.html'>guide_axis</a></span><span class='op'>(</span>n.dodge<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"Race of Death Row Defendant"</span>, y<span class='op'>=</span><span class='st'>"Exoneration Rate"</span><span class='op'>)</span></span>
+<span><span class='va'>race_exon_graph</span></span></code></pre>
+</div>
+<img src="index_files/figure-html5/unnamed-chunk-8-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>race_region_graph</span> <span class='op'>&lt;-</span> <span class='va'>deathsentence</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>Races</span>, <span class='va'>Region</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>County.and.State</span> <span class='op'>!=</span> <span class='st'>"Military"</span>,</span>
 <span>         <span class='va'>Races</span> <span class='op'>!=</span> <span class='st'>"Unknown"</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
@@ -1582,31 +1860,41 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span></span>
 <span><span class='va'>race_region_graph</span></span></code></pre>
 </div>
-<img src="index_files/figure-html5/unnamed-chunk-3-1.png" width="624" />
+<img src="index_files/figure-html5/unnamed-chunk-8-2.png" width="624" />
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>fit_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>exonerated</span> <span class='op'>~</span> <span class='va'>minority</span>, data <span class='op'>=</span> <span class='va'>deathsentence</span><span class='op'>)</span></span>
-<span><span class='va'>fit_1</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>race_exon_graph</span> <span class='op'>&lt;-</span> <span class='va'>deathsentence</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>group_label<span class='op'>=</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/case_when.html'>case_when</a></span><span class='op'>(</span><span class='va'>minority</span><span class='op'>==</span><span class='fl'>1</span> <span class='op'>&amp;</span> <span class='va'>exonerated</span> <span class='op'>==</span><span class='fl'>1</span> <span class='op'>~</span> <span class='st'>"Exonerated &amp; Minority"</span>,</span>
+<span>                               <span class='va'>minority</span><span class='op'>==</span><span class='fl'>1</span> <span class='op'>&amp;</span> <span class='va'>exonerated</span> <span class='op'>==</span><span class='fl'>0</span> <span class='op'>~</span> <span class='st'>"Not Exonerated &amp; Minority"</span>,</span>
+<span>                               <span class='va'>minority</span><span class='op'>==</span><span class='fl'>0</span> <span class='op'>&amp;</span> <span class='va'>exonerated</span> <span class='op'>==</span><span class='fl'>1</span> <span class='op'>~</span> <span class='st'>"Exonerated &amp; Non-minority"</span>,</span>
+<span>                               <span class='va'>minority</span><span class='op'>==</span><span class='fl'>0</span> <span class='op'>&amp;</span> <span class='va'>exonerated</span> <span class='op'>==</span> <span class='fl'>0</span> <span class='op'>~</span> <span class='st'>"Not Exonerated &amp; Non-minority"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>group_label</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>count<span class='op'>=</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span> <span class='va'>group_label</span>, y<span class='op'>=</span><span class='va'>count</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://scales.r-lib.org/reference/alpha.html'>alpha</a></span><span class='op'>(</span><span class='st'>"#2C77BF"</span>, <span class='fl'>.3</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label <span class='op'>=</span> <span class='va'>count</span><span class='op'>)</span>, position <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/position_stack.html'>position_stack</a></span><span class='op'>(</span>vjust <span class='op'>=</span> <span class='fl'>1.05</span><span class='op'>)</span>, size <span class='op'>=</span><span class='fl'>5</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_x_discrete</a></span><span class='op'>(</span>guide <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_axis.html'>guide_axis</a></span><span class='op'>(</span>n.dodge<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"Defendant Type"</span>, y<span class='op'>=</span><span class='st'>"Total Defendants"</span><span class='op'>)</span></span>
+<span>  </span>
+<span><span class='va'>race_exon_graph</span></span></code></pre>
 </div>
-<pre><code>
-Call:
-lm(formula = exonerated ~ minority, data = deathsentence)
-
-Coefficients:
-(Intercept)     minority  
-    0.01404      0.00814  </code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>fit_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>exonerated</span> <span class='op'>~</span> <span class='va'>minority</span> <span class='op'>+</span> <span class='va'>Southern</span>, data <span class='op'>=</span> <span class='va'>deathsentence</span><span class='op'>)</span></span>
-<span><span class='va'>fit_2</span></span></code></pre>
+<p><img src="index_files/figure-html5/unnamed-chunk-8-3.png" width="624" /></p>
 </div>
-<pre><code>
-Call:
-lm(formula = exonerated ~ minority + Southern, data = deathsentence)
-
-Coefficients:
-(Intercept)     minority     Southern  
-   0.015306     0.008119    -0.002057  </code></pre>
+<p>These visualizations of the relationship between my independent (defendant’s race) and dependent variables (whether the sentence ends in exoneration) further reinforces this positive correlation. Middle Eastern defendants actually have the highest incident of exoneration at a rate of 5%. Ever racial category considered under the label “minority” has a higher rate of exoneration than white defendants except for Native Americans. The further breakdown by region shows that Middle Easterners sentenced in the South have the highest rate of exoneration at ~10% followed by Latine defendants in the Midwest at a rate of almost 8%.</p>
+<div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>fit_1</span> <span class='op'>|&gt;</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>deathsentence</span> <span class='op'>&lt;-</span> <span class='va'>deathsentence</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>gender <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>Gender</span> <span class='op'>==</span> <span class='st'>"Male"</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span>,</span>
+<span>         Southern <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>Region</span> <span class='op'>==</span> <span class='st'>"South"</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>fit_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>exonerated</span> <span class='op'>~</span> <span class='va'>minority</span>, data <span class='op'>=</span> <span class='va'>deathsentence</span><span class='op'>)</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class='va'>fit_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>exonerated</span> <span class='op'>~</span> <span class='va'>minority</span> <span class='op'>+</span> <span class='va'>Southern</span>, data <span class='op'>=</span> <span class='va'>deathsentence</span><span class='op'>)</span></span>
+<span></span>
+<span></span>
+<span><span class='va'>fit_1</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>term</span>, <span class='va'>estimate</span><span class='op'>)</span> <span class='op'>|&gt;</span>  </span>
 <span>  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span></span></code></pre>
@@ -1621,7 +1909,7 @@ Coefficients:
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">0.014</td>
+<td style="text-align: right;">0.015</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">minority</td>
@@ -1645,7 +1933,7 @@ Coefficients:
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">0.015</td>
+<td style="text-align: right;">0.018</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">minority</td>
@@ -1653,116 +1941,178 @@ Coefficients:
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Southern</td>
-<td style="text-align: right;">-0.002</td>
+<td style="text-align: right;">-0.004</td>
 </tr>
 </tbody>
 </table>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>ate</span><span class='op'>&lt;-</span> <span class='va'>deathsentence</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>minority</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>mean <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>exonerated</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span><span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_wider.html'>pivot_wider</a></span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>minority</span>,</span>
-<span>              values_from <span class='op'>=</span> <span class='va'>mean</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>ATE <span class='op'>=</span> <span class='va'>`1`</span><span class='op'>-</span><span class='va'>`0`</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>fit_3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>exonerated</span> <span class='op'>~</span> <span class='va'>minority</span> <span class='op'>+</span> <span class='va'>Southern</span> <span class='op'>+</span> <span class='va'>Year</span> <span class='op'>+</span> <span class='va'>gender</span>, data <span class='op'>=</span> <span class='va'>deathsentence</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>ate</span>, col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Average Rate of Exoneration for White Defendants"</span>, <span class='st'>"Rate of Exoneration for Nonwhite Candidates"</span>, <span class='st'>"Difference in Means"</span><span class='op'>)</span>,</span>
-<span>             digits <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span></span></code></pre>
+<span></span>
+<span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://broom.tidymodels.org/'>broom</a></span><span class='op'>)</span></span>
+<span><span class='va'>fit_table</span><span class='op'>&lt;-</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>fit_3</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'>modelsummary</span><span class='fu'>::</span><span class='fu'><a href='https://vincentarelbundock.github.io/modelsummary/reference/modelsummary.html'>modelsummary</a></span><span class='op'>(</span><span class='va'>fit_3</span>,</span>
+<span>                           statistic <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"s.e. = {std.error}"</span>,</span>
+<span>                                         <span class='st'>"p = {p.value}"</span><span class='op'>)</span>,</span>
+<span>                           gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
-<table>
-<colgroup>
-<col style="width: 43%" />
-<col style="width: 38%" />
-<col style="width: 17%" />
-</colgroup>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
-<tr class="header">
-<th style="text-align: right;">Average Rate of Exoneration for White Defendants</th>
-<th style="text-align: right;">Rate of Exoneration for Nonwhite Candidates</th>
-<th style="text-align: right;">Difference in Means</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Model 1
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: right;">0.014</td>
-<td style="text-align: right;">0.022</td>
-<td style="text-align: right;">0.008</td>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:center;">
+1.686
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+s.e. = 0.260
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+p = &lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+minority
+</td>
+<td style="text-align:center;">
+0.009
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+s.e. = 0.003
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+p = 0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Southern
+</td>
+<td style="text-align:center;">
+−0.005
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+s.e. = 0.003
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+p = 0.088
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Year
+</td>
+<td style="text-align:center;">
+−0.0008
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+s.e. = 0.0001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+p = &lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+gender
+</td>
+<td style="text-align:center;">
+0.008
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+s.e. = 0.009
+</td>
+</tr>
+<tr>
+<td style="text-align:left;box-shadow: 0px 1px">
+</td>
+<td style="text-align:center;box-shadow: 0px 1px">
+p = 0.361
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Num.Obs.
+</td>
+<td style="text-align:center;">
+9791
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2
+</td>
+<td style="text-align:center;">
+0.005
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2 Adj.
+</td>
+<td style="text-align:center;">
+0.005
+</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h2 id="analysis">Analysis</h2>
-<p>As my visualizations all cumulatively demonstrate, the defendant being a minority seems to correlate with a higher rate of exoneration from death row. Basically there is a small but still positive relationship between being a nonwhite defendant and having your sentence be overturned based on evidence of innocence. The ATE based on my calculations seems to be 0.008, a very similar statistic to the coefficient I have caluclated using linear regression as well. Basically, when a defendant is white (when minority = 0 as opposed to 1), the rate of exoneration is about 0.014 or a little over 1% (the intercept that was predicted) while the changing of the defendant’s race is correlated, on average, with a 0.8 percent increase. However, as my graph mapping the distribution of sentences by region demonstrates, the South has a disproportionately high rate of death sentences. Perhaps the region of the sentence is a confounder, correlating with a higher proportion of nonwhite defendants in general and some sort of structure state-specific issue within the justice system that causes more wrongful convictions and thus exonerations overall in the South, independent of the defendant’s race. However, my second attempt at running a linear regression counteracts that argument. When a defendant is sentenced in a non-Southern state, nonwhite defendants are still being exonerated at a rate of 0.008 higher than white ones, an almost identical coefficient to the one I calculated before. On the other hand, when a defendant is white, being sentenced in a Southern state as opposed to in any other region actually correlates with a decreased rate of exoneration at -0.002. Basically, the question of whether the death sentence was handed down in the South does not appear to be a confounder witin this data, even if the highest percentage of death sentences are located there.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>fit_3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>exonerated</span> <span class='op'>~</span> <span class='va'>minority</span> <span class='op'>+</span> <span class='va'>Year</span>, data <span class='op'>=</span> <span class='va'>deathsentence</span><span class='op'>)</span></span>
-<span><span class='va'>fit_3</span></span></code></pre>
-</div>
-<pre><code>
-Call:
-lm(formula = exonerated ~ minority + Year, data = deathsentence)
-
-Coefficients:
-(Intercept)     minority         Year  
-  1.4623059    0.0090782   -0.0007273  </code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>race_dist</span> <span class='op'>&lt;-</span> <span class='va'>deathsentence</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>nonwhite <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>Races</span> <span class='op'>==</span> <span class='st'>"Black"</span> <span class='op'>|</span> <span class='va'>Races</span> <span class='op'>==</span> <span class='st'>"Latinx"</span> <span class='op'>|</span> <span class='va'>Races</span> <span class='op'>==</span> <span class='st'>"American Indian or Alaska Native"</span> <span class='op'>|</span> <span class='va'>Races</span> <span class='op'>==</span> <span class='st'>"Asian"</span> <span class='op'>|</span> <span class='va'>Races</span> <span class='op'>==</span> <span class='st'>"Other"</span>, <span class='st'>"Nonwhite"</span>, <span class='st'>"White"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>nonwhite</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span>, </span>
-<span>            exon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>exonerated</span><span class='op'>)</span><span class='op'>)</span></span>
-<span><span class='va'>race_dist</span></span></code></pre>
-</div>
-<pre><code># A tibble: 2 × 3
-  nonwhite count   exon
-  &lt;chr&gt;    &lt;int&gt;  &lt;dbl&gt;
-1 Nonwhite  5094 0.0222
-2 White     4700 0.0140</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>race_dist</span>, col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Race of Capital Defendant"</span>, <span class='st'>"Total Death Sentences"</span>, <span class='st'>"Rate of Exoneration"</span><span class='op'>)</span>,</span>
-<span>             digits <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span></span></code></pre>
-</div>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Race of Capital Defendant</th>
-<th style="text-align: right;">Total Death Sentences</th>
-<th style="text-align: right;">Rate of Exoneration</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Nonwhite</td>
-<td style="text-align: right;">5094</td>
-<td style="text-align: right;">0.022</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">White</td>
-<td style="text-align: right;">4700</td>
-<td style="text-align: right;">0.014</td>
-</tr>
-</tbody>
-</table>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>region_dist</span> <span class='op'>&lt;-</span> <span class='va'>deathsentence</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>Southern</span><span class='op'>)</span><span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>count <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
-<span><span class='va'>race_dist</span></span></code></pre>
-</div>
-<pre><code># A tibble: 2 × 3
-  nonwhite count   exon
-  &lt;chr&gt;    &lt;int&gt;  &lt;dbl&gt;
-1 Nonwhite  5094 0.0222
-2 White     4700 0.0140</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>region_dist</span></span></code></pre>
-</div>
-<pre><code># A tibble: 2 × 2
-  Southern count
-     &lt;dbl&gt; &lt;int&gt;
-1        0  3830
-2        1  5964</code></pre>
-</div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>I then generated three different regressions to try to estimate the effect of race on exoneration rates, trying to eliminate potential confounders. When using “exonerated” as the only response variable and “minority” as the predictor, the estimated coefficient is 0.0082. Essentially, this is the same estimated effect of race on exoneration rate as I already calculated by finding the difference in means. When the exonerated variable increases by 1 (basically switches from a nonminority to a minority), the average proportion of sentences ending in exoneration increases by 0.8 percent.</p>
+<p>In the interest of calculating a coefficient that could be more plausibly interpreted as causal, I needed to also eliminate potential confounders by calculating a multiple regression. Considering a high proportion of total death sentences come from the South as opposed to any other region in the US, I considered Region to be the most worrying potential confounder. It was possible that the South not only had many more minority capital defendants than other regions but that there was also something unique about the criminal justice system in these state’s specifically that made wrongful convictions and exonerations higher across the board for all races. However, when I ran a regression that controlled for whether the sentence was from the South or not, I found that the minority coefficient was almost identical to the original one, now 0.008240 instead of 0.008244. In fact, the Southern coefficient was even -0.004, meaning that when the defendant’s race was held constant, having a sentence in the South meant that the exoneration rate would be on average about 0.4 percent lower than in a non-Southern state.</p>
+<p>I ran one last regression with four different predictors, three of them being potential confounders in my mind, to really reinforce the slight positive effect of being a minority on the rate of exoneration from death row. On top of Southern status, I also controlled for the Year the sentence was handed down as well as the gender of the defendant. It was possible that many more death sentences were handed down for minorities in the earlier decades of this dataset and that this older date might mean the sentence would also have more time logistically to work its way through the main legal avenues to be overturned compared to more recent ones, resulting independently on a higher exoneration rate. Although the vast majority of death row prisoners are men, I thought it wise to also control for gender in case the female defendants were not well distributed with regards to race the way the overall defendants are (5015 Minority and 4779 Non-minority). The minority coefficient for this regression was 0.009, a slightly higher percentage than the one calculated for the other two regressions. This suggests that none of the variables I identified were significant confounders that were skewing the minority and exoneration rate relationship. The standard error for this coefficient is also very low at just 0.003 and the p-value is 0.001. If I set my alpha value at the reasonable value of 0.05, my low p-value means that I can reject the null hypothesis that there’s no actual correlation between minority status and exoneration rate, proving the results to be more statistically significant.</p>
+<p>Although my results do appear to be statistically significant and I have made an effort to eliminate confounders, I do not ultimately think it makes sense to view them causally. For one, even though my confidence intervals do not include zero, the estimated effect is still incredibly small even if consistently positive. Secondly, it was difficult to ensure that the two treatment groups – either minority or non-minority – are demographically similar on all other relevant fronts considering the limited information available in this study. Perhaps the higher chances of being wrongfully convicted are more directly related to income or whether the case happened in an urban/rural area, etc. As we’ve learned in the course, it is harder to ensure internal validity with an observational study compared to a random control trial. That being said, this study seems to maintain a higher level of external validity, meaning that the pattern that minorities are more likely to be wrongfully convicted on death row can more likely be generalized to broader contexts beyond this study.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In conclusion, my analysis does support my original hypothesis that being a minority defendant would be associated with a higher rate of exoneration from death row. That being said, the estimated effect, though statistically significant based on the p-value and consistent even when testing several confounders, is incredibly marginal, hovering just under 1 percent. The combination of this and the fact that there are many other potential confounders I could not test using this current data set meant I was not able to argue that the positive correlation was necessarily causal. One of the main limitations on the study, in my opinion, is the relatively small sample size of death row sentences, especially ones that end in exoneration, compared with many other studies we’ve conducted throughout the GOV 50 course. Since the rate of exoneration overall was relatively small, this meant differences across racial lines, even if consistently demonstrated, were also relatively small. If I were able to access a data set that tracked all sentences dealing with violent crimes, for instance, and the outcomes of those sentences, I predict that these same patterns of innocence and exoneration would hold up but on a larger, less marginal scale. The other limitation to the study was the relatively small number of variables included in the Death Penalty Census that I could use to check for confounders. To improve the study in the future, I think it would be incredibly useful to also track variables such as the average income of the defendant, the race of the victim, the number of victims, whether they have previous criminal convictions, etc. Since this is not a randomized control trial, it is very tricky to ensure that those included in the treated (aka minority group) versus control (aka the non-minority group) categories are demographically similar in other ways since they are reflective of the actual population full of disparities rather than randomized by an algorithm. Therefore, I think the more impactful variables I could control for when calculating my minority coefficient in the regression beyond just region, year, and gender, the stronger the results could be.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
